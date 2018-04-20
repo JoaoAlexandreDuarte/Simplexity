@@ -87,7 +87,7 @@ namespace SImplexityv2._0 {
                 else if (currentPiece == PieceTypes.RedCircle ||
                    currentPiece == PieceTypes.WhiteCircle)
                 {
-                    piece = Menu.square;
+                    piece = Menu.ball;
                 }
 
             }else {
@@ -97,7 +97,7 @@ namespace SImplexityv2._0 {
             Console.ForegroundColor = player == PlayerType.One ?
                 ConsoleColor.White : ConsoleColor.Red;
 
-            Console.WriteLine("   {0} {1} {2} {3} {4} {5} {6}",
+            Console.WriteLine("   {0}  {1}  {2}  {3}  {4}  {5}  {6}",
                 currentColumn == 0 ? piece : " ",
                 currentColumn == 1 ? piece : " ",
                 currentColumn == 2 ? piece : " ",
