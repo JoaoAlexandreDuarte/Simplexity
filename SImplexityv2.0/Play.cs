@@ -54,7 +54,7 @@ namespace SImplexityv2._0 {
 
                 } else if (key.Key == ConsoleKey.Enter) {
                     // Pressing <Enter> will try to drop the chosen Piece into the correct column.
-                    if (board.CanAdd(currentColumn)) {
+                    if (board.CanAdd(currentColumn) && CheckPiece(currentPiece)) {
                         board.Add(currentColumn, currentPiece);
                         if (player == PlayerType.One) {
                             player = PlayerType.Two;
@@ -62,8 +62,34 @@ namespace SImplexityv2._0 {
                             player = PlayerType.One;
                         }
                     }
+
+
+
+
+
+
                 }
             } while (trip);
+        }
+
+        private static bool CheckPiece(PieceTypes currentPiece)
+        {
+            if (currentPiece == PieceTypes.RedSquare && (p2Squares > 0))
+            {
+                return true;
+            } else if (currentPiece == PieceTypes.RedCircle && (p2Circles > 0))
+            {
+                return true;
+            } else if (currentPiece == PieceTypes.WhiteSquare && (p2Squares > 0))
+            {
+                return true;
+            } else if (currentPiece == PieceTypes.WhiteCircle && (p2Circles > 0))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         private static void DrawHeader(World board, int currentColumn,
@@ -77,7 +103,7 @@ namespace SImplexityv2._0 {
             Console.WriteLine($"Player 2: \n\t{Menu.square}: {p2Squares}" +
                 $"\n\t{Menu.ball}: {p2Circles}\n");
 
-            if (board.CanAdd(currentColumn))
+            if (board.CanAdd(currentColumn) && CheckPiece(currentPiece))
             {
                 if (currentPiece == PieceTypes.RedSquare ||
                     currentPiece == PieceTypes.WhiteSquare)
