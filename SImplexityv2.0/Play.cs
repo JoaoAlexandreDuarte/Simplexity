@@ -62,12 +62,6 @@ namespace SImplexityv2._0 {
                             player = PlayerType.One;
                         }
                     }
-
-
-
-
-
-
                 }
             } while (trip);
         }
@@ -89,6 +83,26 @@ namespace SImplexityv2._0 {
             } else
             {
                 return false;
+            }
+        }
+
+
+        private static void RemovePiece(PieceTypes currentPiece) {
+            if (currentPiece == PieceTypes.RedSquare)
+            {
+                p2Squares--;
+            }
+            else if (currentPiece == PieceTypes.RedCircle)
+            {
+                p2Circles--;
+            }
+            else if (currentPiece == PieceTypes.WhiteSquare)
+            {
+                p2Squares--;
+            }
+            else if (currentPiece == PieceTypes.WhiteCircle)
+            {
+                p2Circles--;
             }
         }
 
