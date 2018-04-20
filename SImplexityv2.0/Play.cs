@@ -18,7 +18,7 @@ namespace SImplexityv2._0 {
             bool trip = true;
             do {
                 Console.Clear();
-                // DrawHeader(board, currentColumn, player, currentPiece);
+                DrawHeader(board, currentColumn, player, currentPiece);
                 board.DrawBoard();
                 // Get input from the user.
                 // Left and right arrow keys can be used to move over one
@@ -56,6 +56,7 @@ namespace SImplexityv2._0 {
                     // Pressing <Enter> will try to drop the chosen Piece into the correct column.
                     if (board.CanAdd(currentColumn) && CheckPiece(currentPiece)) {
                         board.Add(currentColumn, currentPiece);
+                        RemovePiece(currentPiece);
                         if (player == PlayerType.One) {
                             player = PlayerType.Two;
                         } else {
@@ -64,6 +65,10 @@ namespace SImplexityv2._0 {
                     }
                 }
             } while (trip);
+
+            Console.Clear();
+            DrawHeader(board, currentColumn, player, currentPiece);
+            board.DrawBoard();
         }
 
         private static bool CheckPiece(PieceTypes currentPiece)
