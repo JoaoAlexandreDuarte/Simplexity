@@ -14,7 +14,7 @@ namespace SImplexityv2._0 {
 
         static void Choise(byte menuSel) {
             if (menuSel == 1) {
-                //Play.startPlay();
+                Play.startPlay();
             } else if (menuSel == 2) {
                 DrawRules();
                 DrawMenu();
