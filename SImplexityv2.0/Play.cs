@@ -65,5 +65,46 @@ namespace SImplexityv2._0 {
                 }
             } while (trip);
         }
+
+        private static void DrawHeader(World board, int currentColumn,
+            PlayerType player, PieceTypes currentPiece) {
+            string piece = "";
+
+            Console.WriteLine($"Player 1: \n\t{Menu.square}: {p1Squares}" +
+                $"\n\t{Menu.ball}: {p1Circles}\n");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Player 2: \n\t{Menu.square}: {p2Squares}" +
+                $"\n\t{Menu.ball}: {p2Circles}\n");
+
+            if (board.CanAdd(currentColumn))
+            {
+                if (currentPiece == PieceTypes.RedSquare ||
+                    currentPiece == PieceTypes.WhiteSquare)
+                {
+                    piece = Menu.square;
+                }
+                else if (currentPiece == PieceTypes.RedCircle ||
+                   currentPiece == PieceTypes.WhiteCircle)
+                {
+                    piece = Menu.square;
+                }
+
+            }else {
+                piece = "x";
+            }
+
+            Console.ForegroundColor = player == PlayerType.One ?
+                ConsoleColor.White : ConsoleColor.Red;
+
+            Console.WriteLine("   {0} {1} {2} {3} {4} {5} {6}",
+                currentColumn == 0 ? piece : " ",
+                currentColumn == 1 ? piece : " ",
+                currentColumn == 2 ? piece : " ",
+                currentColumn == 3 ? piece : " ",
+                currentColumn == 4 ? piece : " ",
+                currentColumn == 5 ? piece : " ",
+                currentColumn == 6 ? piece : " ");
+        }
     }
 }
