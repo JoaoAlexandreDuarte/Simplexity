@@ -63,8 +63,24 @@ namespace SImplexityv2._0 {
                             player = PlayerType.One;
                         }
                     }
+
+                    if (player == PlayerType.One) {
+                        if (p1Squares > 0) {
+                            currentPiece = PieceTypes.WhiteSquare;
+                        } else {
+                            currentPiece = PieceTypes.WhiteCircle;
+                        }
+                    } else if (player == PlayerType.Two) {
+                        if (p1Squares > 0) {
+                            currentPiece = PieceTypes.RedSquare;
+                        } else {
+                            currentPiece = PieceTypes.RedCircle;
+                        }
+                    }
                 }
             } while (trip);
+
+
 
             Console.Clear();
             DrawHeader(board, currentColumn, player, currentPiece);
@@ -79,10 +95,10 @@ namespace SImplexityv2._0 {
             } else if (currentPiece == PieceTypes.RedCircle && (p2Circles > 0))
             {
                 return true;
-            } else if (currentPiece == PieceTypes.WhiteSquare && (p2Squares > 0))
+            } else if (currentPiece == PieceTypes.WhiteSquare && (p1Squares > 0))
             {
                 return true;
-            } else if (currentPiece == PieceTypes.WhiteCircle && (p2Circles > 0))
+            } else if (currentPiece == PieceTypes.WhiteCircle && (p1Circles > 0))
             {
                 return true;
             } else
@@ -103,11 +119,11 @@ namespace SImplexityv2._0 {
             }
             else if (currentPiece == PieceTypes.WhiteSquare)
             {
-                p2Squares--;
+                p1Squares--;
             }
             else if (currentPiece == PieceTypes.WhiteCircle)
             {
-                p2Circles--;
+                p1Circles--;
             }
         }
 
