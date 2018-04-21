@@ -12,15 +12,15 @@ namespace SImplexityv2._0 {
         /// Check what option the user chose
         /// </summary>
         /// <param name="menuSel">Contains the user input value</param>
-        static void Choice(byte menuSel) {
+        static void Choice(string menuSel) {
             // Asks if the user selected the first option
-            if (menuSel == 1) {
+            if (menuSel == "1") {
                 /* If the player selected option 1 calls the 'startPlay()' 
                  * Method from the 'Play' Class */
                 Play.startPlay();
 
             // Asks if the user selected the second option
-            } else if (menuSel == 2) {
+            } else if (menuSel == "2") {
                 // If the player selected option 2 calls the 'DrawRules()' Method
                 DrawRules();
                 /* When the Method 'DrawRules()' finishes, calls 'DrawMenu()'
@@ -39,7 +39,7 @@ namespace SImplexityv2._0 {
         /// </summary>
         public static void DrawMenu() {
             // Saves the user input value.
-            byte menuSel;
+            string menuSel;
 
             // Clears the console to write a simple menu.
             Console.Clear();
@@ -51,7 +51,7 @@ namespace SImplexityv2._0 {
             Console.WriteLine("╚═══════════════════════╝");
 
             // Saves the user input to the 'menuSel' byte.
-            menuSel = Convert.ToByte(Console.ReadLine());
+            menuSel = Console.ReadLine();
 
             // Calls the 'Choise()' Method.
             Choice(menuSel);
