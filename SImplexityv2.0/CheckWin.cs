@@ -8,43 +8,48 @@ namespace SImplexityv2._0 {
         // String that takes in the information about who won
         public static string win = "";
 
+        // Check shape in horizontal.
         public static string CheckHorizontal(PieceTypes[,] grid)
-            {
+        {
             int piecesInRow = 0;
             string shape = "";
             string color = "";
-            // Check shape in horizontal
+
+            // Check shape in horizontal.
             for (int i = 6; i >= 0; i--)
             {
                 for (int j = 6; j > 0; j--)
                 {
                     piecesInRow++;
-                    shape = CheckShape(grid[j, i]);
-                    if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar) {
+                    shape = CheckShape(grid[i, j]);
+                    if (grid[j, i] == PieceTypes.Bar || grid[i, j - 1] == PieceTypes.Bar)
+                    {
                         piecesInRow = 0;
-                    } else if (shape != CheckShape(grid[i, j- 1]))
+                    }
+                    else if (shape != CheckShape(grid[i, j - 1]))
                     {
                         piecesInRow = 0;
 
                     }
-                    if (piecesInRow ==3  ) {
-                        win = shape == "Square" ? "Player 2 Wins!" : "Player Wins!";
+                    if (piecesInRow == 3)
+                    {
+                        win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
                     }
-                } 
+                }
 
             }
 
-            // Check color in horizontal
+            // Check color in horizontal.
             for (int i = 6; i >= 0; i--)
             {
                 for (int j = 6; j > 0; j--)
                 {
                     piecesInRow++;
-                    color = CheckColor(grid[j, i]);
-                    if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar)
+                    color = CheckColor(grid[i, j]);
+                    if (grid[j, i] == PieceTypes.Bar || grid[i, j - 1] == PieceTypes.Bar)
                     {
-                        piecesInRow++;
+                        piecesInRow = 0;
                     }
                     else if (color != CheckColor(grid[i, j - 1]))
                     {
@@ -53,15 +58,14 @@ namespace SImplexityv2._0 {
                     }
                     if (piecesInRow == 3)
                     {
-                        win = shape == "Red" ? "Player 2 Wins!" : "Player Wins!";
+                        win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
                     }
                 }
 
             }
             return win;
-                
-            }
+        }
 
         /// <summary>
         /// Verifies if the value of each piece is divisible by two,
@@ -69,11 +73,15 @@ namespace SImplexityv2._0 {
         /// </summary>
         /// <param name="currentPiece"></param>
         /// <returns></returns>
-        private static string CheckShape(PieceTypes currentPiece) {
+        private static string CheckShape(PieceTypes currentPiece)
+        {
             string shape = "";
-            if ((int)currentPiece % 2 == 0) {
+            if ((int)currentPiece % 2 == 0)
+            {
                 shape = "Square";
-            } else if ((int)currentPiece % 2 != 0) {
+            }
+            else if ((int)currentPiece % 2 != 0)
+            {
                 shape = "Circle";
             }
             return shape;
