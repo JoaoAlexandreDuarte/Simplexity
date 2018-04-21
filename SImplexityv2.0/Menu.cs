@@ -8,21 +8,40 @@ namespace SImplexityv2._0 {
         public static string ball = "\u25CF";
         public static string square = "\u25A0";
 
+        /// <summary>
+        /// Check what option the user chose
+        /// </summary>
+        /// <param name="menuSel">Contains the user input value</param>
         static void Choise(byte menuSel) {
+            // Asks if the user selected the first option
             if (menuSel == 1) {
+                /* If the player selected option 1 calls the 'startPlay()' 
+                 * Method from the 'Play' Class */
                 Play.startPlay();
+
+            // Asks if the user selected the second option
             } else if (menuSel == 2) {
+                // If the player selected option 2 calls the 'DrawRules()' Method
                 DrawRules();
+                /* When the Method 'DrawRules()' finishes, calls 'DrawMenu()'
+                 * to display the Menu again */
                 DrawMenu();
+
+            // If nothing was selected, prints the menu again on to the Console
             } else {
                 DrawMenu();
             }
         }
 
+
+        /// <summary>
+        /// Displays a small choice menu on the console
+        /// </summary>
         public static void DrawMenu() {
+            // Saves the user input value.
             byte menuSel;
 
-            // Simple menu
+            // Clears the console to write a simple menu.
             Console.Clear();
             Console.WriteLine("╔═══════════════════════╗");
             Console.WriteLine("║\tSimplexity\t║");
@@ -30,12 +49,20 @@ namespace SImplexityv2._0 {
             Console.WriteLine("║\t1 - Play\t║");
             Console.WriteLine("║\t2 - How to win\t║");
             Console.WriteLine("╚═══════════════════════╝");
+
+            // Saves the user input to the 'menuSel' byte.
             menuSel = Convert.ToByte(Console.ReadLine());
 
+            // Calls the 'Choise()' Method.
             Choise(menuSel);
         }
 
+
+        /// <summary>
+        /// Displays a table containing information about the game.
+        /// </summary>
         static void DrawRules() {
+            // Clears the console
             Console.Clear();
 
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -57,8 +84,10 @@ namespace SImplexityv2._0 {
             Console.WriteLine($"║ White  ║  {ball}       ║  {square}       ║");
             Console.WriteLine("╠════════╬══════════╬══════════╣");
             Console.Write("║ ");
+            // Changes the Foreground Color on the Console to red.
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Red");
+            // Resets the Console colors.
             Console.ResetColor();
             Console.Write("    ║  ");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -70,6 +99,7 @@ namespace SImplexityv2._0 {
             Console.ResetColor();
             Console.WriteLine("       ║");
             Console.WriteLine("╚════════╩══════════╩══════════╝");
+            // Waits for a user input to return to the menu.
             Console.ReadKey();
         }
     }
