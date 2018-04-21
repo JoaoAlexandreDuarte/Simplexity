@@ -17,7 +17,7 @@ namespace SImplexityv2._0 {
             if (menuSel == "1") {
                 /* If the player selected option 1 calls the 'startPlay()' 
                  * Method from the 'Play' Class */
-                Play.startPlay();
+                Play.StartPlay();
 
             // Asks if the user selected the second option
             } else if (menuSel == "2") {
