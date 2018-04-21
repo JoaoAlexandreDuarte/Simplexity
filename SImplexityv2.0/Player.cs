@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SImplexityv2._0 {
+﻿namespace SImplexityv2._0 {
         enum PlayerType {
             One,
             Two

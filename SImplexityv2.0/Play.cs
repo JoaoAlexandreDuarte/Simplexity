@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SImplexityv2._0 {
     class Play {
@@ -79,8 +75,6 @@ namespace SImplexityv2._0 {
                     }
                 }
             } while (trip);
-
-
 
             Console.Clear();
             DrawHeader(board, currentColumn, player, currentPiece);
