@@ -28,9 +28,10 @@ namespace SImplexityv2._0 {
                 DrawMenu();
 
             // If nothing was selected, prints the menu again on to the Console
-            } else {
-                DrawMenu();
+            } else if (menuSel == "3") {
+                Environment.Exit(0);
             }
+            DrawMenu();
         }
 
 
@@ -48,6 +49,7 @@ namespace SImplexityv2._0 {
             Console.WriteLine("╠═══════════════════════╣");
             Console.WriteLine("║\t1 - Play\t║");
             Console.WriteLine("║\t2 - How to win\t║");
+            Console.WriteLine("║\t3 - Exit\t║");
             Console.WriteLine("╚═══════════════════════╝");
 
             // Saves the user input to the 'menuSel' byte.
