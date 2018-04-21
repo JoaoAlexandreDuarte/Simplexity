@@ -1,6 +1,9 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
+    /// <summary>
+    /// Checks all wining conditions
+    /// </summary>
     public class CheckWin {
         // String that takes in the information about who won
         public static string win = "";

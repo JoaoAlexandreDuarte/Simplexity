@@ -1,13 +1,17 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
+    /// <summary>
+    /// Runs the game with a 'do' 'While' cycle
+    /// while also drawing the header
+    /// </summary>
     public class Play {
-        /// <summary>
-        /// Variables that holdd the number of 
-        /// max squares and circles per player.
-        /// </summary>
-        private static int p1Squares = 11, p2Squares = 11;
-        private static int p1Circles = 10, p2Circles = 10;
+        /* Properties that hold the number of 
+         * max squares and circles per player.*/
+        private static int P1Squares { get; set; } = 11;
+        private static int P2Squares { get; set; } = 11;
+        private static int P1Circles { get; set; } = 10;
+        private static int P2Circles { get; set; } = 10;
 
         /// <summary>
         /// Method that creates and draws the world, and the player in it.
@@ -70,14 +74,14 @@ namespace SImplexityv2._0 {
                     }
                     // Player one chooses the current piece between square and circle.
                     if (player == PlayerType.One) {
-                        if (p1Squares > 0) {
+                        if (P1Squares > 0) {
                             currentPiece = PieceTypes.WhiteSquare;
                         } else {
                             currentPiece = PieceTypes.WhiteCircle;
                         }
                       // Player two chooses the current piece between square and circle.
                     } else if (player == PlayerType.Two) {
-                        if (p1Squares > 0) {
+                        if (P1Squares > 0) {
                             currentPiece = PieceTypes.RedSquare;
                         } else {
                             currentPiece = PieceTypes.RedCircle;
@@ -85,8 +89,8 @@ namespace SImplexityv2._0 {
                     }
                 }
 
-                if (p1Circles == 0 && p1Squares == 0 &&
-                    p2Circles == 0 && p2Squares == 0) {
+                if (P1Circles == 0 && P1Squares == 0 &&
+                    P2Circles == 0 && P2Squares == 0) {
                     result = "It's a tie!";
                 }
 
@@ -102,10 +106,10 @@ namespace SImplexityv2._0 {
 
             // Resets Values before returning to the Menu
             CheckWin.win = "";
-            p1Circles = 10;
-            p1Squares = 11;
-            p2Circles = 10;
-            p2Squares = 11;
+            P1Circles = 10;
+            P1Squares = 11;
+            P2Circles = 10;
+            P2Squares = 11;
 
             // Calls method 'DrawMenu()', to return to the Menu
             Menu.DrawMenu();
@@ -119,16 +123,16 @@ namespace SImplexityv2._0 {
         /// <returns></returns>
         private static bool CheckPiece(PieceTypes currentPiece)
         {
-            if (currentPiece == PieceTypes.RedSquare && (p2Squares > 0))
+            if (currentPiece == PieceTypes.RedSquare && (P2Squares > 0))
             {
                 return true;
-            } else if (currentPiece == PieceTypes.RedCircle && (p2Circles > 0))
+            } else if (currentPiece == PieceTypes.RedCircle && (P2Circles > 0))
             {
                 return true;
-            } else if (currentPiece == PieceTypes.WhiteSquare && (p1Squares > 0))
+            } else if (currentPiece == PieceTypes.WhiteSquare && (P1Squares > 0))
             {
                 return true;
-            } else if (currentPiece == PieceTypes.WhiteCircle && (p1Circles > 0))
+            } else if (currentPiece == PieceTypes.WhiteCircle && (P1Circles > 0))
             {
                 return true;
             } else
@@ -144,19 +148,19 @@ namespace SImplexityv2._0 {
         private static void RemovePiece(PieceTypes currentPiece) {
             if (currentPiece == PieceTypes.RedSquare)
             {
-                p2Squares--;
+                P2Squares--;
             }
             else if (currentPiece == PieceTypes.RedCircle)
             {
-                p2Circles--;
+                P2Circles--;
             }
             else if (currentPiece == PieceTypes.WhiteSquare)
             {
-                p1Squares--;
+                P1Squares--;
             }
             else if (currentPiece == PieceTypes.WhiteCircle)
             {
-                p1Circles--;
+                P1Circles--;
             }
         }
 
@@ -172,12 +176,12 @@ namespace SImplexityv2._0 {
             PlayerType player, PieceTypes currentPiece) {
             string piece = "";
 
-            Console.WriteLine($"Player 1: \n\t{Menu.square}: {p1Squares}" +
-                $"\n\t{Menu.ball}: {p1Circles}\n");
+            Console.WriteLine($"Player 1: \n\t{Menu.square}: {P1Squares}" +
+                $"\n\t{Menu.ball}: {P1Circles}\n");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Player 2: \n\t{Menu.square}: {p2Squares}" +
-                $"\n\t{Menu.ball}: {p2Circles}\n");
+            Console.WriteLine($"Player 2: \n\t{Menu.square}: {P2Squares}" +
+                $"\n\t{Menu.ball}: {P2Circles}\n");
 
             // The player chooses the color of the pieces whether
             // it's a 'Square' or a 'Circle'.

@@ -1,6 +1,10 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
+    /// <summary>
+    /// Used to start the program and to call the
+    /// method 'DrawMenu()' in the 'Menu' Class
+    /// </summary>
     public class Program {
         private static void Main(string[] args) {
             // Changes the Console encoding to be 'UTF8'

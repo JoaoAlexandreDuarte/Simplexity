@@ -1,6 +1,10 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
+    /// <summary>
+    /// Draws a small menu with 3 diferent choices
+    /// Also draws the help Menu
+    /// </summary>
     public class Menu {
         /// <summary>
         /// Unicode of the ball and square used in this game

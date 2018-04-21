@@ -1,6 +1,10 @@
 ﻿namespace SImplexityv2._0 {
-        public enum PlayerType {
-            One,
-            Two
-        }
+    /// <summary>
+    /// Create a public enum to save the
+    /// player number
+    /// </summary>
+    public enum PlayerType {
+        One,
+        Two
+    }
 }
