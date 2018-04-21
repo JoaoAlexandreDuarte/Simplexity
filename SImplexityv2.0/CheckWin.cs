@@ -2,6 +2,9 @@
 
 namespace SImplexityv2._0 {
     public class CheckWin {
+        // String that takes in the information about who won
+        public static string win = "";
+
         /// <summary>
         /// Verifies if the value of each piece is divisible by two,
         /// in order to determine its shape.

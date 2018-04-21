@@ -15,10 +15,10 @@ namespace SImplexityv2._0 {
         public static void StartPlay() {
             World board = new World();
             int currentColumn = 3;
+            string result = "";
             PlayerType player = PlayerType.One;
             PieceTypes currentPiece = PieceTypes.WhiteSquare;
             
-            bool trip = true;
             do {
                 // Clear the board and redraw it with the new 'current' info.
                 Console.Clear();
@@ -84,11 +84,31 @@ namespace SImplexityv2._0 {
                         }
                     }
                 }
-            } while (trip);
-            // Clear the board and redraw it with the new 'current' info.
+
+                if (p1Circles == 0 && p1Squares == 0 &&
+                    p2Circles == 0 && p2Squares == 0) {
+                    result = "It's a tie!";
+                }
+
+            } while (result == "");
+
+            // Clears the Console
             Console.Clear();
-            DrawHeader(board, currentColumn, player, currentPiece);
-            board.DrawBoard();
+            // Write the information about who won
+            Console.WriteLine(result);
+            // Ask's for an input return to the Menu
+            Console.WriteLine("\nPress Any Key to Return to Menu...");
+            Console.ReadKey();
+
+            // Resets Values before returning to the Menu
+            CheckWin.win = "";
+            p1Circles = 10;
+            p1Squares = 11;
+            p2Circles = 10;
+            p2Squares = 11;
+
+            // Calls method 'DrawMenu()', to return to the Menu
+            Menu.DrawMenu();
         }
 
         /// <summary>
