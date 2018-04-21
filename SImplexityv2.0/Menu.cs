@@ -12,7 +12,7 @@ namespace SImplexityv2._0 {
         /// Check what option the user chose
         /// </summary>
         /// <param name="menuSel">Contains the user input value</param>
-        static void Choise(byte menuSel) {
+        static void Choice(byte menuSel) {
             // Asks if the user selected the first option
             if (menuSel == 1) {
                 /* If the player selected option 1 calls the 'startPlay()' 
@@ -54,7 +54,7 @@ namespace SImplexityv2._0 {
             menuSel = Convert.ToByte(Console.ReadLine());
 
             // Calls the 'Choise()' Method.
-            Choise(menuSel);
+            Choice(menuSel);
         }
 
 
