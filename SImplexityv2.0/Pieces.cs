@@ -1,5 +1,5 @@
 ﻿namespace SImplexityv2._0 {
-    enum PieceTypes {
+    public enum PieceTypes {
             RedSquare = 0,
             RedCircle = 1,
             WhiteSquare = 2,

@@ -1,14 +1,14 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
-    class CheckWin {
+    public class CheckWin {
         /// <summary>
         /// Verifies if the value of each piece is divisible by two,
         /// in order to determine its shape.
         /// </summary>
         /// <param name="currentPiece"></param>
         /// <returns></returns>
-        static string CheckShape(PieceTypes currentPiece) {
+        private static string CheckShape(PieceTypes currentPiece) {
             string shape = "";
             if ((int)currentPiece % 2 == 0) {
                 shape = "Square";
@@ -24,7 +24,7 @@ namespace SImplexityv2._0 {
         /// </summary>
         /// <param name="currentPiece"></param>
         /// <returns></returns>
-        static string CheckColor(PieceTypes currentPiece) {
+        private static string CheckColor(PieceTypes currentPiece) {
             string color = "";
             if ((int)currentPiece == 0 || (int)currentPiece == 1) {
                 color = "Red";
