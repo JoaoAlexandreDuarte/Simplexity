@@ -8,6 +8,61 @@ namespace SImplexityv2._0 {
         // String that takes in the information about who won
         public static string win = "";
 
+        public static string CheckHorizontal(PieceTypes[,] grid)
+            {
+            int piecesInRow = 0;
+            string shape = "";
+            string color = "";
+            // Check shape in horizontal
+            for (int i = 6; i >= 0; i--)
+            {
+                for (int j = 6; j > 0; j--)
+                {
+                    piecesInRow++;
+                    shape = CheckShape(grid[j, i]);
+                    if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar) {
+                        piecesInRow = 0;
+                    } else if (shape != CheckShape(grid[i, j- 1]))
+                    {
+                        piecesInRow = 0;
+
+                    }
+                    if (piecesInRow ==3  ) {
+                        win = shape == "Square" ? "Player 2 Wins!" : "Player Wins!";
+                        return win;
+                    }
+                } 
+
+            }
+
+            // Check color in horizontal
+            for (int i = 6; i >= 0; i--)
+            {
+                for (int j = 6; j > 0; j--)
+                {
+                    piecesInRow++;
+                    color = CheckColor(grid[j, i]);
+                    if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar)
+                    {
+                        piecesInRow++;
+                    }
+                    else if (color != CheckColor(grid[i, j - 1]))
+                    {
+                        piecesInRow = 0;
+
+                    }
+                    if (piecesInRow == 3)
+                    {
+                        win = shape == "Red" ? "Player 2 Wins!" : "Player Wins!";
+                        return win;
+                    }
+                }
+
+            }
+            return win;
+                
+            }
+
         /// <summary>
         /// Verifies if the value of each piece is divisible by two,
         /// in order to determine its shape.
