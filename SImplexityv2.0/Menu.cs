@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
-    class Menu {
+    public class Menu {
         /// <summary>
         /// Unicode of the ball and square used in this game
         /// </summary>
@@ -12,12 +12,12 @@ namespace SImplexityv2._0 {
         /// Check what option the user chose
         /// </summary>
         /// <param name="menuSel">Contains the user input value</param>
-        static void Choice(string menuSel) {
+        private static void Choice(string menuSel) {
             // Asks if the user selected the first option
             if (menuSel == "1") {
                 /* If the player selected option 1 calls the 'startPlay()' 
                  * Method from the 'Play' Class */
-                Play.startPlay();
+                Play.StartPlay();
 
             // Asks if the user selected the second option
             } else if (menuSel == "2") {
@@ -61,7 +61,7 @@ namespace SImplexityv2._0 {
         /// <summary>
         /// Displays a table containing information about the game.
         /// </summary>
-        static void DrawRules() {
+        private static void DrawRules() {
             // Clears the console
             Console.Clear();
 

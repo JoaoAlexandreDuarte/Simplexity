@@ -2,13 +2,13 @@
 
 namespace SImplexityv2._0 {
 
-    class World {
+    public class World {
 
         /// <summary>
         /// The number of rows and Columns in the grid.
         /// </summary>
-        static readonly int Rows = 7;
-        static readonly int Columns = 7;
+        private static readonly int Rows = 7;
+        private static readonly int Columns = 7;
 
         /// <summary>
         /// Stores the contents of the grid.

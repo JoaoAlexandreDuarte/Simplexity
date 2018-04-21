@@ -1,5 +1,5 @@
 ﻿namespace SImplexityv2._0 {
-        enum PlayerType {
+        public enum PlayerType {
             One,
             Two
         }

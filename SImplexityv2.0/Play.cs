@@ -1,17 +1,11 @@
 ﻿using System;
 
 namespace SImplexityv2._0 {
-    /// <summary>
-    /// Class of the pieces and its quantitys
-    /// </summary>
-    class Play {
-        static int p1Squares = 11, p2Squares = 11;
-        static int p1Circles = 10, p2Circles = 10;
+    public class Play {
+        private static int p1Squares = 11, p2Squares = 11;
+        private static int p1Circles = 10, p2Circles = 10;
 
-        /// <summary>
-        /// The game will start with the player one in the column 3
-        /// </summary>
-        public static void startPlay() {
+        public static void StartPlay() {
             World board = new World();
             int currentColumn = 3;
             PlayerType player = PlayerType.One;
