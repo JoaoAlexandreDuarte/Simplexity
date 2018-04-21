@@ -100,7 +100,7 @@ namespace SImplexityv2._0 {
             Console.Clear();
             // Write the information about who won
             Console.WriteLine(result);
-            // Ask's for an input return to the Menu
+            // Asks for an input return to the Menu
             Console.WriteLine("\nPress Any Key to Return to Menu...");
             Console.ReadKey();
 
@@ -142,7 +142,7 @@ namespace SImplexityv2._0 {
         }
 
         /// <summary>
-        /// It decrements the value of the 'current' piece.
+        /// Decrements the value of the 'current' piece.
         /// </summary>
         /// <param name="currentPiece">Currently selected piece</param>
         private static void RemovePiece(PieceTypes currentPiece) {
@@ -199,13 +199,14 @@ namespace SImplexityv2._0 {
                 {
                     piece = Menu.ball;
                 }
-            // If full, it shows the string "x".
+            // If full, it prints the string "x".
             } else {
                 piece = "x";
             }
 
-            // If the current player is 'One' print it current piece 'White' 
-            // otherwise print 'Red'.
+            // If the current player is 'One' 
+            // print the current piece as 'White'; 
+            // Otherwise print 'Red'.
             Console.ForegroundColor = player == PlayerType.One ?
                 ConsoleColor.White : ConsoleColor.Red;
             // Draws the pieces on top of the grid, 
