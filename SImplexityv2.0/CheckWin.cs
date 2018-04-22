@@ -109,6 +109,65 @@ namespace SImplexityv2._0 {
         }
 
         /// <summary>
+        /// Checks if four pieces are in a row diagonally to the right
+        /// </summary>
+        /// <param name="grid">Stores the contents of the grid.</param>
+        /// <returns>Wining condition</returns>
+        public static string CheckDiagonalRight(PieceTypes[,] grid) {
+            int i = 2, j = 0;
+            int piecesInRow = 0;
+            string shape = "";
+            string color = "";
+            // Check Shape
+            for (int a = 0; a <= 6; a++) {
+                    if (a <= 3) {
+                        i++;
+                    } else if (a > 3) {
+                        j++;
+                    }
+                for (int b = 0; b < i && b < j; b++) {
+                    piecesInRow++;
+                    shape = CheckShape(grid[i - b, j + b]);
+                    if (grid[i - b, j + b] == PieceTypes.Bar ||
+                        grid[i - b - 1, j + b + 1] == PieceTypes.Bar) {
+                        piecesInRow = 0;
+                    } else if (shape != CheckShape(grid[i - b - 1, j + b + 1])) {
+                        piecesInRow = 0;
+                    }
+                    if (piecesInRow == 3) {
+                        win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
+                        return win;
+                    }
+                }
+            }
+            i = 2;
+            j = 0;
+            // Check Color
+            for (int a = 0; a <= 6; a++) {
+                    if (a <= 3) {
+                        i++;
+                    } else if (a > 3) {
+                        j++;
+                    }
+                for (int b = 0; b < i && b < j; b++) {
+                    piecesInRow++;
+                    color = CheckColor(grid[i - b, j + b]);
+                    if (grid[i - b, j + b] == PieceTypes.Bar ||
+                        grid[i - b - 1, j + b + 1] == PieceTypes.Bar) {
+                        piecesInRow = 0;
+                    } else if (color != CheckColor(grid[i - b - 1, j + b + 1])) {
+                        piecesInRow = 0;
+                    }
+                    if (piecesInRow == 4) {
+                        win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
+                        return win;
+                    }
+                }
+            }
+            return win;
+        }
+
+        /// <summary>
         /// Verifies if the value of each piece is divisible by two,
         /// in order to determine its shape.
         /// </summary>
