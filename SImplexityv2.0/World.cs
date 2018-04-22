@@ -4,7 +4,7 @@ namespace SImplexityv2._0 {
     /// <summary>
     /// Manages and draws the world grid, keeping
     /// everything in place and checking if any columns
-    /// are full
+    /// are full.
     /// </summary>
     public class World {
 

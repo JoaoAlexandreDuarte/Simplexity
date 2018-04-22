@@ -3,7 +3,7 @@
 namespace SImplexityv2._0 {
     /// <summary>
     /// Runs the game with a 'do' 'While' cycle
-    /// while also drawing the header
+    /// while also drawing the header.
     /// </summary>
     public class Play {
         /* Properties that hold the number of 
@@ -17,24 +17,24 @@ namespace SImplexityv2._0 {
         /// Method that creates the object board, and runs the game on a while cycle.
         /// </summary>
         public static void StartPlay() {
-            //  Create a board
+            //  Create a board.
             World board = new World();
-            // Defauld value of the selected column to start in the middle
+            // Default value of the selected column to start at the middle.
             int currentColumn = 3;
-            // result will recive the winning condition
+            // 'result' will recive the winning condition.
             string result = "";
-            // Stores the information on what player's turn it is
+            // Stores the information on what player's turn it is.
             PlayerType player = PlayerType.One;
-            // Stores the information on what piece is currently selected
+            // Stores the information on what piece is currently selected.
             PieceTypes currentPiece = PieceTypes.WhiteSquare;
             
-            // Start a Do-While cycle
+            // Start a Do-While cycle.
             do {
                 // Clear the board and redraw it with the new 'current' info.
                 Console.Clear();
-                // Call the 'DrawHeader' Method to draw the header
+                // Call the 'DrawHeader' Method to draw the header.
                 DrawHeader(board, currentColumn, player, currentPiece);
-                // Call the 'DrawBoard' Method to draw the board
+                // Call the 'DrawBoard' Method to draw the board.
                 board.DrawBoard();
 
                 // Get input from the user.
@@ -47,11 +47,11 @@ namespace SImplexityv2._0 {
                 } else if (key.Key == ConsoleKey.RightArrow && currentColumn < 6) {
                     currentColumn++;
                   /* Up and Down arrows can be used to select between the diferent
-                   * pieces depending on witch player's turn it is*/
+                   * pieces depending on witch player's turn it is.*/
                 } else if ((key.Key == ConsoleKey.UpArrow ||
                     key.Key == ConsoleKey.DownArrow) &&
                     player == PlayerType.One) {
-                    // Up or down to choose the form off the piece, as player one.
+                    // Up or down to choose the pieces form, as player one.
                     if (currentPiece == PieceTypes.WhiteCircle) {
                         currentPiece = PieceTypes.WhiteSquare;
                     } else if (currentPiece == PieceTypes.WhiteSquare) {
@@ -63,19 +63,19 @@ namespace SImplexityv2._0 {
                 } else if ((key.Key == ConsoleKey.UpArrow ||
                         key.Key == ConsoleKey.DownArrow) &&
                         player == PlayerType.Two) {
-                    // Up or down to choose the form of the piece, as player two.
+                    // Up or down to choose the pieces form, as player two.
                     if (currentPiece == PieceTypes.RedCircle) {
                         currentPiece = PieceTypes.RedSquare;
                     } else if (currentPiece == PieceTypes.RedSquare) {
                         currentPiece = PieceTypes.RedCircle;
                     }
-                /* When the 'Enter' key is pressed we will verify a series of options
-                 * to make sure, that the chosen piece can be played*/
+                /* When the 'Enter' key is pressed we will verify everything
+                 * to make sure, that the chosen piece can be played.*/
                 } else if (key.Key == ConsoleKey.Enter) {
                     /* Ask if the selected column is not full and if the player still has
-                     * the selected piece available to play. */
+                     * the selected piece available to play.*/
                     if (board.CanAdd(currentColumn) && CheckPiece(currentPiece)) {
-                        // Adds the selected pice to the right 'cell' on the array
+                        // Adds the selected pice to the right 'cell' on the array.
                         board.Add(currentColumn, currentPiece);
                         // Decreases the piece counter.
                         RemovePiece(currentPiece);
@@ -89,7 +89,7 @@ namespace SImplexityv2._0 {
                         }
                     }
 
-                    /* Automatic switches the default player 1 piece in case he doesn't have
+                    /* Automatically switches the default player 1 piece in case he doesn't have
                      * a square or circle available to play anymore. */
                     if (player == PlayerType.One) {
                         if (P1Squares > 0) {
@@ -97,8 +97,8 @@ namespace SImplexityv2._0 {
                         } else {
                             currentPiece = PieceTypes.WhiteCircle;
                         }
-                    /* Automatic switches the default player 2 piece in case he doesn't have
-                     * a square or circle available to play anymore. */
+                        /* Automatically switches the default player 2 piece in case he doesn't have
+                         * a square or circle available to play anymore. */
                     } else if (player == PlayerType.Two) {
                         if (P1Squares > 0) {
                             currentPiece = PieceTypes.RedSquare;
@@ -109,38 +109,39 @@ namespace SImplexityv2._0 {
                 }
 
                 /* If both players run out of pieces then the winning condition
-                 * becomes a Tie*/
+                 * becomes a Tie.*/
                 if (P1Circles == 0 && P1Squares == 0 &&
-                    P2Circles == 0 && P2Squares == 0) {
+                    P2Circles == 0 && P2Squares == 0 &&
+                    result == "") {
                     result = "It's a tie!";
                 }
-            // Runs the Do-While cycle while there is no winning condition
+            // Runs the Do-While cycle while there is no winning condition.
             } while (result == "");
 
-            // Clears the Console
+            // Clears the Console.
             Console.Clear();
-            // Write the information about who won
+            // Write the information about who won.
             Console.WriteLine(result);
-            // Asks for an input return to the Menu
+            // Asks for an input return to the Menu.
             Console.WriteLine("\nPress Any Key to Return to Menu...");
             Console.ReadKey();
 
-            // Resets Values before returning to the Menu
+            // Resets all necessary values before returning to the Menu.
             P1Circles = 10;
             P1Squares = 11;
             P2Circles = 10;
             P2Squares = 11;
 
-            // Calls method 'DrawMenu()', to return to the Menu
+            // Calls method 'DrawMenu()', to return to the Menu.
             Menu.DrawMenu();
         }
 
         /// <summary>
         /// Check if the player's selected piece is still available to be played.
         /// </summary>
-        /// <param name="currentPiece">Currently selected piece</param>
-        /// <returns>True of False depending if the player still has
-        /// pieces left to play</returns>
+        /// <param name="currentPiece">Currently selected piece.</param>
+        /// <returns>True of False depending on whether or not the player still
+        ///  has pieces left to play.</returns>
         private static bool CheckPiece(PieceTypes currentPiece)
         {
             if (currentPiece == PieceTypes.RedSquare && (P2Squares > 0))
@@ -164,7 +165,7 @@ namespace SImplexityv2._0 {
         /// <summary>
         /// Decrements the value of the 'current' piece.
         /// </summary>
-        /// <param name="currentPiece">Currently selected piece</param>
+        /// <param name="currentPiece">Currently selected piece.</param>
         private static void RemovePiece(PieceTypes currentPiece) {
             if (currentPiece == PieceTypes.RedSquare)
             {
@@ -185,13 +186,13 @@ namespace SImplexityv2._0 {
         }
 
         /// <summary>
-        /// It draws the current number of pieces that each player has.
-        /// It also draws the piece that the current player 'holds'.
+        /// Draws the current number of pieces that each player has.
+        /// Also draws the piece that the current player 'holds'.
         /// </summary>
-        /// <param name="board">Reference of the object</param>
-        /// <param name="currentColumn">Currently select column</param>
-        /// <param name="player">Represents the player one or two</param>
-        /// <param name="currentPiece">Currently selected piece</param>
+        /// <param name="board">Reference of the object.</param>
+        /// <param name="currentColumn">Currently select column.</param>
+        /// <param name="player">Represents the player one/two.</param>
+        /// <param name="currentPiece">Currently selected piece.</param>
         private static void DrawHeader(World board, int currentColumn,
             PlayerType player, PieceTypes currentPiece) {
             string piece = "";
@@ -205,7 +206,7 @@ namespace SImplexityv2._0 {
 
             /* The player chooses the shape of the pieces whether
              * it's a 'Square' or a 'Circle'.
-             * Example: if chooses 'RedSquare' it will show a red square 
+             * Example: If he chooses 'RedSquare' it will show a red square 
              * on top of the column selected.*/
             if (board.CanAdd(currentColumn) && CheckPiece(currentPiece))
             {
@@ -219,18 +220,18 @@ namespace SImplexityv2._0 {
                 {
                     piece = Menu.ball;
                 }
-            // If full, it prints the string "x".
+            // If the selected column is full, prints the string "x".
             } else {
                 piece = "x";
             }
 
             /* If the current player is 'One' 
-             * print the current piece as 'White'; 
+             * print the current piece as 'White'.
              * Otherwise print the current piece as 'Red'.*/
             Console.ForegroundColor = player == PlayerType.One ?
                 ConsoleColor.White : ConsoleColor.Red;
             /* Draws the pieces on top of the grid, 
-             * according to the column the player has selected. */
+             * according to the column selected by the player.*/
             Console.WriteLine("   {0}  {1}  {2}  {3}  {4}  {5}  {6}",
                 currentColumn == 0 ? piece : " ",
                 currentColumn == 1 ? piece : " ",

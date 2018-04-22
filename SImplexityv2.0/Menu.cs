@@ -2,36 +2,36 @@
 
 namespace SImplexityv2._0 {
     /// <summary>
-    /// Draws a small menu with 3 diferent choices
-    /// Also draws the help Menu
+    /// Draws a small menu with 3 diferent choices.
+    /// Also draws the help Menu.
     /// </summary>
     public class Menu {
         /// <summary>
-        /// Unicode of the ball and square used in this game
+        /// Unicode of the ball and square used in this game.
         /// </summary>
         public static string ball = "\u25CF";
         public static string square = "\u25A0";
 
         /// <summary>
-        /// Check what option the user chose
+        /// Check what option the user chose.
         /// </summary>
         /// <param name="menuSel">Contains the user input value</param>
         private static void Choice(string menuSel) {
-            // Asks if the user selected the first option
+            // Asks if the user selected the first option.
             if (menuSel == "1") {
                 /* If the player selected option 1 calls the 'startPlay()' 
-                 * Method from the 'Play' Class */
+                 * Method from the 'Play' Class.*/
                 Play.StartPlay();
 
-            // Asks if the user selected the second option
+            // Asks if the user selected the second option.
             } else if (menuSel == "2") {
-                // If the player selected option 2 calls the 'DrawRules()' Method
+                // If the player selected option 2 calls the 'DrawRules()' Method.
                 DrawRules();
                 /* When the Method 'DrawRules()' finishes, calls 'DrawMenu()'
-                 * to display the Menu again */
+                 * to display the Menu again.*/
                 DrawMenu();
 
-            // If nothing was selected, prints the menu again on to the Console
+            // If nothing was selected, prints the menu again on to the Console.
             } else if (menuSel == "3") {
                 Environment.Exit(0);
             }
@@ -40,7 +40,7 @@ namespace SImplexityv2._0 {
 
 
         /// <summary>
-        /// Displays a small choice menu on the console
+        /// Displays a small choice menu on the console.
         /// </summary>
         public static void DrawMenu() {
             // Saves the user input value.
@@ -68,7 +68,7 @@ namespace SImplexityv2._0 {
         /// Displays a table containing information about the game.
         /// </summary>
         private static void DrawRules() {
-            // Clears the console
+            // Clears the console.
             Console.Clear();
 
             Console.WriteLine("╔═══════════════════════════════╗");
