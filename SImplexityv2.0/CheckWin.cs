@@ -6,18 +6,12 @@ namespace SImplexityv2._0 {
     /// Checks all wining conditions
     /// </summary>
     public class CheckWin {
-
-        /// <summary>
-        /// String that takes in the information about which player won.
-        /// </summary>
-        public static string win = "";
-
         /// <summary>
         /// Checks if four pieces are in a row, horizontally.
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
         /// <returns></returns>
-        public static string CheckHorizontal(PieceTypes[,] grid) {
+        public static string CheckHorizontal(PieceTypes[,] grid, string win) {
 
             // 'Empty' variables
             int piecesInRow = 0;
@@ -65,7 +59,7 @@ namespace SImplexityv2._0 {
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
         /// <returns></returns>
-        public static string CheckVertical(PieceTypes[,] grid) {
+        public static string CheckVertical(PieceTypes[,] grid, string win) {
 
             // 'Empty' variables
             int piecesInRow = 0;
@@ -113,7 +107,7 @@ namespace SImplexityv2._0 {
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
         /// <returns>Wining condition</returns>
-        public static string CheckDiagonal(PieceTypes[,] grid) {
+        public static string CheckDiagonal(PieceTypes[,] grid, string win) {
             int i = 3, j = 6, cycleTimes = 3;
             int piecesInRow = 0;
             string shape = "";
@@ -183,7 +177,7 @@ namespace SImplexityv2._0 {
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
         /// <returns>Wining condition</returns>
-        public static string CheckDiagonalRight(PieceTypes[,] grid) {
+        public static string CheckDiagonalRight(PieceTypes[,] grid, string win) {
             int i = 2, j = 0;
             int piecesInRow = 0;
             string shape = "";
