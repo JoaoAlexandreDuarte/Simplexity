@@ -65,6 +65,7 @@ namespace SImplexityv2._0 {
                     if (board.CanAdd(currentColumn) && CheckPiece(currentPiece)) {
                         board.Add(currentColumn, currentPiece);
                         RemovePiece(currentPiece);
+                        board.Win(result);
                         // Changes the player's turn.
                         if (player == PlayerType.One) {
                             player = PlayerType.Two;
@@ -105,7 +106,6 @@ namespace SImplexityv2._0 {
             Console.ReadKey();
 
             // Resets Values before returning to the Menu
-            CheckWin.win = "";
             P1Circles = 10;
             P1Squares = 11;
             P2Circles = 10;

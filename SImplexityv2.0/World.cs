@@ -83,14 +83,13 @@ namespace SImplexityv2._0 {
             }
         }
 
-        /* public int Win() {
-            int result = 0;
-            result += CheckWin.CheckHorizontal(grid);
-            result += CheckWin.CheckVertical(grid);
-            result += CheckWin.CheckDiagonal(grid);
-            result += CheckWin.CheckDiagonalTwo(grid);
+         public string Win(string result) {
+            result += CheckWin.CheckHorizontal(grid, result);
+            result += CheckWin.CheckVertical(grid, result);
+            result += CheckWin.CheckDiagonal(grid, result);
+            result += CheckWin.CheckDiagonalTwo(grid, result);
             return result;
-        } */
+        } 
 
         /// <summary>
         /// Draws the complete Board to the console.
