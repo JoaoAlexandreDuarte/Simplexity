@@ -10,7 +10,8 @@ namespace SImplexityv2._0 {
         /// Checks if four pieces are in a row, horizontally.
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
-        /// <returns></returns>
+        /// <param name="win">Stores information about the winning player</param>
+        /// <returns>Wining condition</returns>
         public static string CheckHorizontal(PieceTypes[,] grid, string win) {
 
             // 'Empty' variables
@@ -58,7 +59,8 @@ namespace SImplexityv2._0 {
         /// Checks if four pieces are in a row, vertically.
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
-        /// <returns></returns>
+        /// <param name="win">Stores information about the winning player</param>
+        /// <returns>Winning condition</returns>
         public static string CheckVertical(PieceTypes[,] grid, string win) {
 
             // 'Empty' variables
@@ -106,6 +108,7 @@ namespace SImplexityv2._0 {
         /// Checks if four pieces are in a row diagonally to the left
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
+        /// <param name="win">Stores information about the winning player</param>
         /// <returns>Wining condition</returns>
         public static string CheckDiagonal(PieceTypes[,] grid, string win) {
             int i = 3, j = 6, cycleTimes = 3;
@@ -171,11 +174,12 @@ namespace SImplexityv2._0 {
 
             return win;
         }
-        
+
         /// <summary>
         /// Checks if four pieces are in a row diagonally to the right
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
+        /// <param name="win">Stores information about the winning player</param>
         /// <returns>Wining condition</returns>
         public static string CheckDiagonalRight(PieceTypes[,] grid, string win) {
             int i = 2, j = 0;
@@ -236,7 +240,7 @@ namespace SImplexityv2._0 {
         /// in order to determine its shape.
         /// </summary>
         /// <param name="currentPiece">Currently selected piece.</param>
-        /// <returns></returns>
+        /// <returns>Piece Shape</returns>
         private static string CheckShape(PieceTypes currentPiece) {
             string shape = "";
             if ((int)currentPiece % 2 == 0) {
@@ -252,7 +256,7 @@ namespace SImplexityv2._0 {
         /// as the one on the 'enum', to determine its color.
         /// </summary>
         /// <param name="currentPiece">Currently selected piece.</param>
-        /// <returns></returns>
+        /// <returns>Piece Color</returns>
         private static string CheckColor(PieceTypes currentPiece) {
             string color = "";
             if ((int)currentPiece == 0 || (int)currentPiece == 1) {
