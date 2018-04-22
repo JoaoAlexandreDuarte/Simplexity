@@ -109,6 +109,76 @@ namespace SImplexityv2._0 {
         }
 
         /// <summary>
+        /// Checks if four pieces are in a row diagonally to the left
+        /// </summary>
+        /// <param name="grid">Stores the contents of the grid.</param>
+        /// <returns>Wining condition</returns>
+        public static string CheckDiagonal(PieceTypes[,] grid) {
+            int i = 3, j = 6, cycleTimes = 3;
+            int piecesInRow = 0;
+            string shape = "";
+            string color = "";
+
+            // Check shape in diagonal.
+            for (int a = 0; a <= 6; a++) {
+                if (a != 0) {
+                    if (a <= 3) {
+                        cycleTimes++;
+                        i++;
+                    } else if (a > 3) {
+                        cycleTimes--;
+                        j--;
+                    }
+                }
+                for (int b = 0; b < cycleTimes; b++) {
+                    piecesInRow++;
+                    shape = CheckShape(grid[i - b, j - b]);
+                    if (grid[i - b, j - b] == PieceTypes.Bar ||
+                        grid[i - b - 1, j - b - 1] == PieceTypes.Bar) {
+                        piecesInRow = 0;
+                    } else if (shape != CheckShape(grid[i - b - 1, j - b - 1])) {
+                        piecesInRow = 0;
+                    }
+                    if (piecesInRow == 3) {
+                        win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
+                        return win;
+                    }
+                }
+            }
+            i = 3;
+            j = 6;
+
+            // Check color in diagonal.
+            for (int a = 0; a <= 6; a++) {
+                if (a != 0) {
+                    if (a <= 3) {
+                        cycleTimes++;
+                        i++;
+                    } else if (a > 3) {
+                        cycleTimes--;
+                        j--;
+                    }
+                }
+                for (int b = 0; b < cycleTimes; b++) {
+                    piecesInRow++;
+                    color = CheckColor(grid[i - b, j - b]);
+                    if (grid[i - b, j - b] == PieceTypes.Bar ||
+                        grid[i - b - 1, j - b - 1] == PieceTypes.Bar) {
+                        piecesInRow = 0;
+                    } else if (color != CheckColor(grid[i - b - 1, j - b - 1])) {
+                        piecesInRow = 0;
+                    }
+                    if (piecesInRow == 3) {
+                        win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
+                        return win;
+                    }
+                }
+            }
+
+            return win;
+        }
+        
+        /// <summary>
         /// Checks if four pieces are in a row diagonally to the right
         /// </summary>
         /// <param name="grid">Stores the contents of the grid.</param>
