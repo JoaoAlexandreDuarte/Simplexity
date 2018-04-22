@@ -14,21 +14,28 @@ namespace SImplexityv2._0 {
         /// <returns>Wining condition</returns>
         public static string CheckHorizontal(PieceTypes[,] grid, string win) {
 
-            // 'Empty' variables
+            // Iniciate empty variables.
             int piecesInRow = 0;
             string shape = "";
             string color = "";
 
-            // Check Shape.
+            /* Check if there are 4 equal pieces to verify 
+             * the winner in horizontal. */
             for (int i = 6; i >= 0; i--) {
                 for (int j = 6; j > 0; j--) {
                     piecesInRow++;
                     shape = CheckShape(grid[i, j]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i, j] == PieceTypes.Bar || grid[i, j - 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
-                    } else if (shape != CheckShape(grid[i, j - 1])) {
+                        /* Verifies if the piece in the current position
+                         * is the same as the one next to it, on the left. */
+                } else if (shape != CheckShape(grid[i, j - 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the shape is 'Square' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -36,16 +43,22 @@ namespace SImplexityv2._0 {
                 }
             }
 
-            // Check Color.
+            // Check the color to verify the winner in horizontal.
             for (int i = 6; i >= 0; i--) {
                 for (int j = 6; j > 0; j--) {
                     piecesInRow++;
                     color = CheckColor(grid[i, j]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i, j] == PieceTypes.Bar || grid[i, j - 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it, on the left. */
                     } else if (color != CheckColor(grid[i, j - 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the color is 'Red' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -63,21 +76,27 @@ namespace SImplexityv2._0 {
         /// <returns>Winning condition</returns>
         public static string CheckVertical(PieceTypes[,] grid, string win) {
 
-            // 'Empty' variables
+            // Iniciate empty variables.
             int piecesInRow = 0;
             string shape = "";
             string color = "";
 
-            // Check Shape.
+            // Check if there 4 equal pieces to verify the winner in vertical.
             for (int i = 6; i >= 0; i--) {
                 for (int j = 6; j > 0; j--) {
                     piecesInRow++;
                     shape = CheckShape(grid[j, i]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it. */
                     } else if (shape != CheckShape(grid[j - 1, i])) {
                         piecesInRow = 0;
                     }
+                    /* If the shape is 'Square' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -85,16 +104,22 @@ namespace SImplexityv2._0 {
                 }
             }
 
-            // Check Color.
+            // Check the color to verify the winner in vertical.
             for (int i = 6; i >= 0; i--) {
                 for (int j = 6; j > 0; j--) {
                     piecesInRow++;
                     color = CheckColor(grid[j, i]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[j, i] == PieceTypes.Bar || grid[j - 1, i] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it. */
                     } else if (color != CheckColor(grid[j - 1, i])) {
                         piecesInRow = 0;
                     }
+                    /* If the color is 'Red' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -116,7 +141,8 @@ namespace SImplexityv2._0 {
             string shape = "";
             string color = "";
 
-            // Check shape in diagonal.
+            /* Check if there 4 equal pieces to verify the winner 
+             * in diagonal to the left. */
             for (int a = 0; a <= 6; a++) {
                     if (a <= 3) {
                         i++;
@@ -126,12 +152,18 @@ namespace SImplexityv2._0 {
                 for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     shape = CheckShape(grid[i - b, j - b]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i - b, j - b] == PieceTypes.Bar ||
                         grid[i - b - 1, j - b - 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it. */
                     } else if (shape != CheckShape(grid[i - b - 1, j - b - 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the shape is 'Square' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -139,11 +171,11 @@ namespace SImplexityv2._0 {
                 }
             }
 
-            // Reset the value of 'i' and 'j'
+            // Reset the value of 'i' and 'j'.
             i = 2;
             j = 6;
 
-            // Check color in diagonal.
+            // Check the color to verify the winner in diagonal to the left.
             for (int a = 0; a <= 6; a++) {
                     if (a <= 3) {
                         i++;
@@ -153,12 +185,18 @@ namespace SImplexityv2._0 {
                 for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     color = CheckColor(grid[i - b, j - b]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i - b, j - b] == PieceTypes.Bar ||
                         grid[i - b - 1, j - b - 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it, on the left. */
                     } else if (color != CheckColor(grid[i - b - 1, j - b - 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the color is 'Red' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 3) {
                         win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -180,7 +218,9 @@ namespace SImplexityv2._0 {
             int piecesInRow = 0;
             string shape = "";
             string color = "";
-            // Check Shape
+
+            /* Check if there 4 equal pieces to verify the winner 
+             * in diagonally to the right. */
             for (int a = 0; a <= 6; a++) {
                     if (a <= 3) {
                         i++;
@@ -190,12 +230,18 @@ namespace SImplexityv2._0 {
                 for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     shape = CheckShape(grid[i - b, j + b]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i - b, j + b] == PieceTypes.Bar ||
                         grid[i - b - 1, j + b + 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it, on the left. */
                     } else if (shape != CheckShape(grid[i - b - 1, j + b + 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the shape is 'Square' the winner is player 2,
+                     * else the winnner is player 1 */
                     if (piecesInRow == 3) {
                         win = shape == "Square" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
@@ -204,7 +250,8 @@ namespace SImplexityv2._0 {
             }
             i = 2;
             j = 0;
-            // Check Color
+
+            // Check the color to verify the winner in diagonally to the right.
             for (int a = 0; a <= 6; a++) {
                     if (a <= 3) {
                         i++;
@@ -214,12 +261,18 @@ namespace SImplexityv2._0 {
                 for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     color = CheckColor(grid[i - b, j + b]);
+                    /* Verify if there is a bar in the grid position 
+                     * or if there is a bar after that one. */
                     if (grid[i - b, j + b] == PieceTypes.Bar ||
                         grid[i - b - 1, j + b + 1] == PieceTypes.Bar) {
                         piecesInRow = 0;
+                      /* Verifies if the piece in the current position
+                       * is the same as the one next to it, on the left. */
                     } else if (color != CheckColor(grid[i - b - 1, j + b + 1])) {
                         piecesInRow = 0;
                     }
+                    /* If the color is 'Red' the winner is player 2,
+                     * else the winnner is player 1. */
                     if (piecesInRow == 4) {
                         win = color == "Red" ? "Player 2 Wins!" : "Player 1 Wins!";
                         return win;
