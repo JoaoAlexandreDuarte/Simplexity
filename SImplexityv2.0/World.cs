@@ -86,7 +86,7 @@ namespace SImplexityv2._0 {
          public string Win(string result) {
             result = CheckWin.CheckHorizontal(grid, result);
             result = CheckWin.CheckVertical(grid, result);
-            result = CheckWin.CheckDiagonal(grid, result);
+            result = CheckWin.CheckDiagonalLeft(grid, result);
             result = CheckWin.CheckDiagonalRight(grid, result);
             return result;
         } 

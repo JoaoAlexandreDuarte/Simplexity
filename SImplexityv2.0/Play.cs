@@ -65,7 +65,7 @@ namespace SImplexityv2._0 {
                     if (board.CanAdd(currentColumn) && CheckPiece(currentPiece)) {
                         board.Add(currentColumn, currentPiece);
                         RemovePiece(currentPiece);
-                        board.Win(result);
+                        result = board.Win(result);
                         // Changes the player's turn.
                         if (player == PlayerType.One) {
                             player = PlayerType.Two;

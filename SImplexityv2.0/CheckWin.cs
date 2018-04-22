@@ -110,24 +110,20 @@ namespace SImplexityv2._0 {
         /// <param name="grid">Stores the contents of the grid.</param>
         /// <param name="win">Stores information about the winning player</param>
         /// <returns>Wining condition</returns>
-        public static string CheckDiagonal(PieceTypes[,] grid, string win) {
-            int i = 3, j = 6, cycleTimes = 3;
+        public static string CheckDiagonalLeft(PieceTypes[,] grid, string win) {
+            int i = 2, j = 6;
             int piecesInRow = 0;
             string shape = "";
             string color = "";
 
             // Check shape in diagonal.
             for (int a = 0; a <= 6; a++) {
-                if (a != 0) {
                     if (a <= 3) {
-                        cycleTimes++;
                         i++;
                     } else if (a > 3) {
-                        cycleTimes--;
                         j--;
                     }
-                }
-                for (int b = 0; b < cycleTimes; b++) {
+                for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     shape = CheckShape(grid[i - b, j - b]);
                     if (grid[i - b, j - b] == PieceTypes.Bar ||
@@ -142,21 +138,19 @@ namespace SImplexityv2._0 {
                     }
                 }
             }
-            i = 3;
+
+            // Reset the value of 'i' and 'j'
+            i = 2;
             j = 6;
 
             // Check color in diagonal.
             for (int a = 0; a <= 6; a++) {
-                if (a != 0) {
                     if (a <= 3) {
-                        cycleTimes++;
                         i++;
                     } else if (a > 3) {
-                        cycleTimes--;
                         j--;
                     }
-                }
-                for (int b = 0; b < cycleTimes; b++) {
+                for (int b = 0; b < i && b < j; b++) {
                     piecesInRow++;
                     color = CheckColor(grid[i - b, j - b]);
                     if (grid[i - b, j - b] == PieceTypes.Bar ||
