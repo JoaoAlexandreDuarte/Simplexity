@@ -100,7 +100,7 @@ namespace SImplexityv2._0 {
                         /* Automatically switches the default player 2 piece in case he doesn't have
                          * a square or circle available to play anymore. */
                     } else if (player == PlayerType.Two) {
-                        if (P1Squares > 0) {
+                        if (P2Squares > 0) {
                             currentPiece = PieceTypes.RedSquare;
                         } else {
                             currentPiece = PieceTypes.RedCircle;

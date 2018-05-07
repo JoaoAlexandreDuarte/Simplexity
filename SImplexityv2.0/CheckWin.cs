@@ -241,7 +241,7 @@ namespace SImplexityv2._0 {
                     } else if (a > 3) {
                         j++;
                     }
-                for (int b = 0; b < i && b < j; b++) {
+                for (int b = 0; b < i && b >= j; b++) {
                     piecesInRow++;
                     shape = CheckShape(grid[i - b, j + b]);
                     /* Verify if there is a bar on the current grid position 
@@ -273,7 +273,7 @@ namespace SImplexityv2._0 {
                     } else if (a > 3) {
                         j++;
                     }
-                for (int b = 0; b < i && b < j; b++) {
+                for (int b = 0; b < i && b >= j; b++) {
                     piecesInRow++;
                     color = CheckColor(grid[i - b, j + b]);
                     /* Verify if there is a bar on the current grid position 
